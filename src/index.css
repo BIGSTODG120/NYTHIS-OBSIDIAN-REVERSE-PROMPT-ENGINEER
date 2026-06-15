@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    min-height: 100vh;
+  }
+  body {
+    background-color: #05030a;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124, 58, 237, 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 110%, rgba(168, 85, 247, 0.1), transparent 60%);
+    background-attachment: fixed;
+    color: #e9e4f7;
+  }
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.35);
+    color: #fff;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.25);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 85, 247, 0.45);
+  }
+}
+
+@layer components {
+  .obsidian-card {
+    @apply rounded-xl border border-violet-ash/40 bg-obsidian-900/60 backdrop-blur-sm;
+    box-shadow:
+      0 0 0 1px rgba(124, 58, 237, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03),
+      0 12px 36px -16px rgba(0, 0, 0, 0.7);
+  }
+  .obsidian-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all;
+    @apply bg-gradient-to-b from-violet-ignite to-violet-ember text-white;
+    @apply border border-violet-glow/40;
+    @apply hover:shadow-ignite hover:from-violet-glow hover:to-violet-ignite;
+    @apply active:scale-[0.98];
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none;
+  }
+  .obsidian-button-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all;
+    @apply bg-obsidian-800/60 text-fracture border border-violet-ash/30;
+    @apply hover:bg-obsidian-700/80 hover:border-violet-glow/50 hover:text-white;
+    @apply active:scale-[0.98];
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .obsidian-input {
+    @apply w-full rounded-lg bg-obsidian-950/80 border border-violet-ash/30 px-3 py-2 text-sm;
+    @apply text-fracture placeholder:text-fracture-dim/60;
+    @apply focus:outline-none focus:border-violet-glow/60 focus:ring-2 focus:ring-violet-ignite/20;
+    @apply font-mono;
+  }
+  .fracture-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(168, 85, 247, 0.5),
+      rgba(124, 58, 237, 0.7),
+      rgba(168, 85, 247, 0.5),
+      transparent
+    );
+    height: 1px;
+  }
+}
